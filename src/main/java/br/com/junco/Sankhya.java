@@ -53,6 +53,19 @@ public class Sankhya {
         }
     }
 
+    public void logout() throws IOException {
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        Request request = new Request.Builder()
+                .url("https://api.sankhya.com.br/gateway/v1/mge/service.sbr?serviceName=MobileLoginSP.logout&outputType=json")
+                .addHeader("appkey", getAppKey())
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", "Bearer " + getBearerToken())
+                .build();
+        Response response = client.newCall(request).execute();
+    }
+
     private String getUsuario() {
         return usuario;
     }
