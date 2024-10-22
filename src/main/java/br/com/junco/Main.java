@@ -28,7 +28,7 @@ public class Main {
         );
         try {
             if (s.login()){
-                System.out.println("Oi");
+                s.getInstanciasMkt();
                 s.logout();
             }
         }
